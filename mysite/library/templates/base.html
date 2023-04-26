@@ -37,12 +37,17 @@
   </div>
 </nav>
 
-<!--<ul class="sidebar-nav">-->
-<!--  <li><a href="{% url 'index' %}">Pradžia</a></li>-->
-<!--  <li><a href="">Visos knygos</a></li>-->
-<!--  <li><a href="">Visi autoriai</a></li>-->
-<!--</ul>-->
+{% comment 'nereikalingas sidebar' %}
 
+<ul class="sidebar-nav">
+  <li><a href="{% url 'blablabla' %}">Pradžia</a></li>
+  <li><a href="">Visos knygos</a></li>
+  <li><a href="">Visi autoriai</a></li>
+</ul>
+
+{% endcomment %}
+
+{# Čia konteineris, skirtas turiniui #}
 <div class="container">
     {% block "content" %}{% endblock%}
 </div>
