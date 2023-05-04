@@ -68,11 +68,10 @@ class BookDetailView(generic.DetailView):
     template_name = "book.html"
 
 
-class MyBookInstanceListView(generic.ListView, LoginRequiredMixin):
+class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
     model = BookInstance
     context_object_name = "my_books"
     template_name = "my_books.html"
 
     def get_queryset(self):
         return BookInstance.objects.filter(reader=self.request.user)
-
