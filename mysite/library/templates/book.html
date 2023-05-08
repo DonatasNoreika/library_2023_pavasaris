@@ -19,6 +19,16 @@
     <li><strong>ISBN: </strong>{{ book.isbn }}</li>
 </ul>
 <p>{{ book.summary }}</p>
+<h2>Atsiliepimai</h2>
+{% if book.reviews.all %}
+{% for review in book.reviews.all %}
+<hr>
+<strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created}}</em>
+<p>{{ review.content }}</p>
+{% endfor %}
+{% else %}
+<p>Knyga neturi atsiliepimų</p>
+{% endif %}
 <h2>Knygos egzemplioriai:</h2>
 <ol>
     {% for instance in book.instances.all %}
