@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Book, BookInstance, Author
 from django.views import generic
 from django.core.paginator import Paginator
@@ -7,6 +7,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.views.generic.edit import FormMixin
+from .forms import BookReviewForm
+
 
 # Create your views here.
 def index(request):
@@ -64,10 +67,29 @@ class BookListView(generic.ListView):
     paginate_by = 3
 
 
-class BookDetailView(generic.DetailView):
+class BookDetailView(FormMixin, generic.DetailView):
     model = Book
     context_object_name = "book"
     template_name = "book.html"
+    form_class = BookReviewForm
+
+    def get_success_url(self):
+        return reverse('book', kwargs={'pk': self.object.id})
+
+    # standartinis post metodo perrašymas, naudojant FormMixin, galite kopijuoti tiesiai į savo projektą.
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.book = self.object
+        form.instance.reviewer = self.request.user
+        form.save()
+        return super().form_valid(form)
 
 
 class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
@@ -77,6 +99,7 @@ class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return BookInstance.objects.filter(reader=self.request.user)
+
 
 @csrf_protect
 def register(request):
