@@ -42,6 +42,8 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 INSTALLED_APPS = [
     'library',
     'tinymce',
+    'crispy_forms',
+    "crispy_bootstrap5",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -166,3 +168,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
