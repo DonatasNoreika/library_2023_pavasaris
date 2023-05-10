@@ -25,7 +25,7 @@ class ProfileUpdateForm(forms.ModelForm):
 class DateInput(forms.DateInput):
     input_type = 'date'
 
-class InstanceCreateForm(forms.ModelForm):
+class InstanceForm(forms.ModelForm):
     class Meta:
         model = BookInstance
         fields = ['book', 'due_back']
