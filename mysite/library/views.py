@@ -99,6 +99,12 @@ class BookInstanceListView(LoginRequiredMixin, generic.ListView):
     template_name = 'instances.html'
 
 
+class BookInstanceDetailView(LoginRequiredMixin, generic.DetailView):
+    model = BookInstance
+    context_object_name = "instance"
+    template_name = "instance.html"
+
+
 class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
     model = BookInstance
     context_object_name = "my_books"
@@ -106,12 +112,6 @@ class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return BookInstance.objects.filter(reader=self.request.user)
-
-
-class MyBookInstanceDetailView(LoginRequiredMixin, generic.DetailView):
-    model = BookInstance
-    context_object_name = "my_book"
-    template_name = "my_book.html"
 
 
 @csrf_protect
