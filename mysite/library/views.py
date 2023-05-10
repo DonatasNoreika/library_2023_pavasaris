@@ -93,18 +93,6 @@ class BookDetailView(FormMixin, generic.DetailView):
         return super().form_valid(form)
 
 
-class BookInstanceListView(LoginRequiredMixin, generic.ListView):
-    model = BookInstance
-    context_object_name = "instances"
-    template_name = 'instances.html'
-
-
-class BookInstanceDetailView(LoginRequiredMixin, generic.DetailView):
-    model = BookInstance
-    context_object_name = "instance"
-    template_name = "instance.html"
-
-
 class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
     model = BookInstance
     context_object_name = "my_books"
@@ -160,3 +148,26 @@ def profile(request):
         'p_form': p_form,
     }
     return render(request, 'profile.html', context=context)
+
+
+class BookInstanceListView(LoginRequiredMixin, generic.ListView):
+    model = BookInstance
+    context_object_name = "instances"
+    template_name = 'instances.html'
+
+
+class BookInstanceDetailView(LoginRequiredMixin, generic.DetailView):
+    model = BookInstance
+    context_object_name = "instance"
+    template_name = "instance.html"
+
+
+class BookInstanceCreateView(LoginRequiredMixin, generic.CreateView):
+    model = BookInstance
+    fields = ['book', 'due_back']
+    success_url = "/library/instances/"
+    template_name = 'instance_form.html'
+
+    def form_valid(self, form):
+        form.instance.reader = self.request.user
+        return super().form_valid(form)
