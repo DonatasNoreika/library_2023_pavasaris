@@ -11,6 +11,7 @@ urlpatterns = [
     path('search/', views.search, name="search"),
     path('my_books/', views.MyBookInstanceListView.as_view(), name='my_books'),
     path('my_books/<int:pk>', views.MyBookInstanceDetailView.as_view(), name="my_book"),
+    path('instances/', views.BookInstanceListView.as_view(), name='instances'),
     path('register/', views.register, name='register'),
     path('profile/', views.profile, name='profile'),
 ]

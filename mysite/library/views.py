@@ -93,6 +93,12 @@ class BookDetailView(FormMixin, generic.DetailView):
         return super().form_valid(form)
 
 
+class BookInstanceListView(LoginRequiredMixin, generic.ListView):
+    model = BookInstance
+    context_object_name = "instances"
+    template_name = 'instances.html'
+
+
 class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
     model = BookInstance
     context_object_name = "my_books"
