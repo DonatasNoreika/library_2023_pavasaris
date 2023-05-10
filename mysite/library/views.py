@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.views.generic.edit import FormMixin
-from .forms import BookReviewForm, UserUpdateForm, ProfileUpdateForm
+from .forms import BookReviewForm, UserUpdateForm, ProfileUpdateForm, InstanceCreateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import UserPassesTestMixin
 
@@ -165,9 +165,10 @@ class BookInstanceDetailView(LoginRequiredMixin, generic.DetailView):
 
 class BookInstanceCreateView(LoginRequiredMixin, generic.CreateView):
     model = BookInstance
-    fields = ['book', 'due_back']
+    # fields = ['book', 'due_back']
     success_url = "/library/instances/"
     template_name = 'instance_form.html'
+    form_class = InstanceCreateForm
 
     def form_valid(self, form):
         form.instance.reader = self.request.user
