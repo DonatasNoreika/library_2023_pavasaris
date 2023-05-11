@@ -3,14 +3,14 @@
 {% block "title" %}HOME{% endblock%}
 
 {% block "content" %}
-
-<h1>Sveiki atvykę į knygų rojų</h1>
-<p>Šiuo metu turime:</p>
+{% load i18n %}
+<h1>{% trans "Welcome to my Library" %}</h1>
+<p>{% trans "Today we have:" %}</p>
 <ul>
-    <li><strong>Knygų: </strong>{{ num_books }}</li>
-    <li><strong>Egzempliorių: </strong>{{ num_instances }}</li>
-    <li><strong>Autoriai: </strong>{{ num_authors }}</li>
-    <li><strong>Laisvų knygų: </strong>{{ num_instances_available }}</li>
+    <li><strong>{% trans "Books" %}: </strong>{{ num_books }}</li>
+    <li><strong>{% trans "Book Instances" %}: </strong>{{ num_instances }}</li>
+    <li><strong>{% trans "Authors" %}: </strong>{{ num_authors }}</li>
+    <li><strong>{% trans "Now Available" %}: </strong>{{ num_instances_available }}</li>
 </ul>
-<p>Čia jūs lankotes {{ num_visits }}-ą kartą.</p>
+<p>{% trans "Your visits:" %} {{ num_visits }}</p>
 {% endblock%}
