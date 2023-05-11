@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 10:49+0300\n"
-"PO-Revision-Date: 2023-05-11 10:50+0300\n"
+"POT-Creation-Date: 2023-05-11 11:22+0300\n"
+"PO-Revision-Date: 2023-05-11 11:22+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -50,7 +50,7 @@ msgstr "Knyga"
 
 #: .\models.py:55 .\templates\base.html:32 .\templates\index.html:10
 msgid "Books"
-msgstr "Knygų"
+msgstr "Knygos"
 
 #: .\templates\base.html:16
 msgid "Local Library"
@@ -107,3 +107,26 @@ msgstr "Dabar turime"
 #: .\templates\index.html:15
 msgid "Your visits:"
 msgstr "Jūsų apsilankymai:"
+
+#: .\views.py:115
+#, python-format
+msgid "Username %s already exists!"
+msgstr "Vartotojo vardas %s užimtas!"
+
+#: .\views.py:119
+#, python-format
+msgid "Email %s already exists!"
+msgstr "El. pašto adresas %s užimtas!"
+
+#: .\views.py:123
+#, python-format
+msgid "User %s registered!"
+msgstr "Vartotojas  %s užregistruotas!"
+
+#: .\views.py:126
+msgid "Passwords do not match!"
+msgstr "Slaptažodžiai nesutampa!"
+
+#, python-brace-format
+#~ msgid "Vartotojo vardas {username} užimtas!"
+#~ msgstr "Username {username} already exists!"
