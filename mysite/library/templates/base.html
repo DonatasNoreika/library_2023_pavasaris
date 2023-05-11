@@ -51,19 +51,36 @@
                     <input name="query" type="text" placeholder='{% trans "Search" %}' class="form-control">
                 </form>
             </li>
+            <li>
+                {% load i18n %}
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                    <select name="language" onchange="this.form.submit()">
+                        {% load static %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for lang in LANGUAGES %}
+                        <option style="background-image: url({% static 'img/lt.png' %});" value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected" {% endif %}>
+                            {{ lang.1 }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </li>
         </ul>
     </div>
 </nav>
 
 <br>
 <div class="container">
-{% if messages %}
+    {% if messages %}
     {% for message in messages %}
-        <div class="alert alert-{% if message.tags == 'error' %}danger{% elif message.tags == 'info' %}success{% endif %}" role="alert">
-                {{ message }}
-        </div>
+    <div class="alert alert-{% if message.tags == 'error' %}danger{% elif message.tags == 'info' %}success{% endif %}" role="alert">
+        {{ message }}
+    </div>
     {% endfor %}
-{% endif %}
+    {% endif %}
 </div>
 
 {# Čia konteineris, skirtas turiniui #}
