@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 10:31+0300\n"
-"PO-Revision-Date: 2023-05-11 10:31+0300\n"
+"POT-Creation-Date: 2023-05-11 10:42+0300\n"
+"PO-Revision-Date: 2023-05-11 10:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -20,6 +20,46 @@ msgstr ""
 "1 : n % 1 != 0 ? 2: 3);\n"
 "X-Generator: Poedit 3.3\n"
 
+#: .\templates\base.html:16
+msgid "Local Library"
+msgstr "Rajono biblioteka"
+
+#: .\templates\base.html:26
+msgid "HOME"
+msgstr "PRADŽIA"
+
+#: .\templates\base.html:29 .\templates\index.html:12
+msgid "Authors"
+msgstr "Autoriai"
+
+#: .\templates\base.html:32 .\templates\index.html:10
+msgid "Books"
+msgstr "Knygų"
+
+#: .\templates\base.html:42
+msgid "Instances"
+msgstr "Knygų egzemplioriai"
+
+#: .\templates\base.html:43
+msgid "My Books"
+msgstr "Mano knygos"
+
+#: .\templates\base.html:44
+msgid "Logout"
+msgstr "Atsijungti"
+
+#: .\templates\base.html:46
+msgid "Register"
+msgstr "Registracija"
+
+#: .\templates\base.html:47
+msgid "Login"
+msgstr "Prisijungti"
+
+#: .\templates\base.html:51
+msgid "Search"
+msgstr "Ieškoti"
+
 #: .\templates\index.html:7
 msgid "Welcome to my Library"
 msgstr "Sveiki atvykę į knygų rojų"
@@ -28,17 +68,9 @@ msgstr "Sveiki atvykę į knygų rojų"
 msgid "Today we have:"
 msgstr "Šiandien turime:"
 
-#: .\templates\index.html:10
-msgid "Books"
-msgstr "Knygų"
-
 #: .\templates\index.html:11
 msgid "Book Instances"
 msgstr "Knygų egzemplioriai"
-
-#: .\templates\index.html:12
-msgid "Authors"
-msgstr "Autoriai"
 
 #: .\templates\index.html:13
 msgid "Now Available"
