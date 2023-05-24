@@ -29,8 +29,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SECRET_KEY = 'k(#qwmsf#-e9hu*l8lerxl*ho=o+9vf)c((**1&95joa(&e6=0'
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_POST = 587
