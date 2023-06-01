@@ -11,7 +11,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from .my_settings import SECRET_KEY, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+from .my_settings import (SECRET_KEY,
+                          EMAIL_HOST_USER,
+                          EMAIL_HOST_PASSWORD,
+                          DEBUG,
+                          ALLOWED_HOSTS,
+                          STATICFILES_DIRS,
+                          STATIC_ROOT)
 import os
 from django.utils.translation import gettext_lazy as _
 
@@ -25,9 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ALLOWED_HOSTS
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -131,6 +137,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATICFILES_DIRS = STATICFILES_DIRS
+STATIC_ROOT = STATIC_ROOT
 
 STATIC_URL = 'static/'
 
